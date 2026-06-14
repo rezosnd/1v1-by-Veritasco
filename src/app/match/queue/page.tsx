@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { io, Socket } from "socket.io-client";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,7 +8,7 @@ import { Search, Zap, Loader2 } from "lucide-react";
 
 let socket: Socket;
 
-export default function QueuePage() {
+function QueuePage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const matchType = searchParams.get("type") || "casual";
@@ -139,5 +139,13 @@ export default function QueuePage() {
         </AnimatePresence>
       </div>
     </div>
+  );
+}
+
+export default function QueuePageWrapper() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-background text-white flex items-center justify-center">Loading...</div>}>
+      <QueuePage />
+    </Suspense>
   );
 }

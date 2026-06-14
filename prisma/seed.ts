@@ -1,10 +1,7 @@
 import { PrismaClient } from '@prisma/client'
-import { Pool } from 'pg'
-import { PrismaPg } from '@prisma/adapter-pg'
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL })
-const adapter = new PrismaPg(pool)
-const prisma = new PrismaClient({ adapter })
+
+const prisma = new PrismaClient()
 
 async function main() {
   console.log('Seeding demo data...')
@@ -43,7 +40,12 @@ async function main() {
       inputFormat: 'Array of integers nums, integer target',
       outputFormat: 'Array of two integers (indices)',
       difficulty: 'EASY',
-      tags: ['Array', 'Hash Table'],
+      tags: {
+        connectOrCreate: [
+          { where: { name: 'Array' }, create: { name: 'Array' } },
+          { where: { name: 'Hash Table' }, create: { name: 'Hash Table' } }
+        ]
+      },
       examples: [
         { input: '[2,7,11,15]\n9', output: '[0,1]' },
         { input: '[3,2,4]\n6', output: '[1,2]' }

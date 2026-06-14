@@ -4,12 +4,9 @@ import GithubProvider from "next-auth/providers/github"
 import CredentialsProvider from "next-auth/providers/credentials"
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
-import { Pool } from "pg"
-import { PrismaPg } from "@prisma/adapter-pg"
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL })
-const prismaAdapter = new PrismaPg(pool)
-const prisma = new PrismaClient({ adapter: prismaAdapter })
+
+const prisma = new PrismaClient()
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -38,7 +35,7 @@ export const authOptions: NextAuthOptions = {
         })
 
         // In a real app, hash and compare passwords
-        if (user && user.password === credentials.password) {
+        if (user && user.passwordHash === credentials.password) {
           return user
         }
 

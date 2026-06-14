@@ -11,6 +11,14 @@ declare global {
       "dotlottie-player": any;
     }
   }
+  namespace React {
+    namespace JSX {
+      interface IntrinsicElements {
+        "spline-viewer": any;
+        "dotlottie-player": any;
+      }
+    }
+  }
 }
 
 // Drifting particles component

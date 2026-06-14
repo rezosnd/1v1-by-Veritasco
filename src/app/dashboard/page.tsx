@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Swords, Trophy, Target, History, Sparkles, LogOut, Code2, Flame, Crown } from "lucide-react";
 import { signOut } from "next-auth/react";
 
@@ -16,7 +16,7 @@ export default function DashboardPage() {
     streak: 5,
   };
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -26,7 +26,7 @@ export default function DashboardPage() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
   };
