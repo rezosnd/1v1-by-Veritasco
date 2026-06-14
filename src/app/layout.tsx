@@ -1,10 +1,7 @@
 import LiquidMetalButton from "@/components/LiquidMetalButton";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "VeritasCo 1v1 | Competitive Coding",
