@@ -49,8 +49,8 @@ export default function LiquidMetalButton({ children, className = "", onClick }:
       onClick={onClick}
       className={`relative inline-flex items-center justify-center group cursor-pointer overflow-hidden rounded-full whitespace-nowrap ${className}`}
       style={{
-        background: 'linear-gradient(#050816, #0A0A2A)',
-        boxShadow: 'inset 0 2px 4px 0 rgba(0, 212, 255, 0.3)',
+        background: 'linear-gradient(lab(30.6017% 56.7637 -64.4751), #241145)',
+        boxShadow: 'inset 0 2px 4px 0 rgba(123, 97, 255, 0.4)',
       }}
     >
       {/* WebGL Canvas Container */}
@@ -61,13 +61,13 @@ export default function LiquidMetalButton({ children, className = "", onClick }:
       />
       
       {/* Electric Blue/Purple Tint Layer */}
-      <div className="absolute inset-0 z-[5] mix-blend-overlay bg-gradient-to-r from-[#00D4FF] to-[#7B61FF] opacity-70 pointer-events-none rounded-full" />
+      <div className="absolute inset-0 z-[5] mix-blend-color bg-[#7B61FF] opacity-100 pointer-events-none rounded-full" />
       
       {/* Animated Conic Outline (Reveals on Hover) */}
       <div className="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-full"
         style={{
           padding: '2px',
-          background: 'conic-gradient(from 180deg, #00D4FF, #7B61FF, #00D4FF, #7B61FF, #00D4FF)',
+          background: 'conic-gradient(from 180deg, #A88DFF, #7B61FF, #A88DFF, #7B61FF, #A88DFF)',
           WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
           WebkitMaskComposite: 'xor',
           mask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',

@@ -75,21 +75,19 @@ export default function ComingSoon() {
     setMounted(true);
   }, []);
 
-  if (!mounted) return <div className="bg-[#050816] min-h-screen" />;
+  if (!mounted) return <div className="bg-[#0a0a0a] min-h-screen" />;
 
   return (
-    <div className="relative h-screen w-full bg-[#050816] text-white flex flex-col overflow-hidden selection:bg-[#7B61FF]/30">
+    <div className="relative h-screen w-full bg-[#0a0a0a] text-white flex flex-col overflow-hidden selection:bg-[lab(30.6017%_56.7637_-64.4751)]/30">
       
-      {/* 3D Spline Background - Color matched to purple theme */}
-      <div className="absolute inset-0 z-0 pointer-events-auto opacity-70 flex items-center justify-center orb">
+      {/* 3D Spline Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-100 flex items-center justify-center orb mt-[-5%]">
         <spline-viewer 
           url="https://prod.spline.design/mFnZxSV0j4KZp6WS/scene.splinecode"
           className="w-full h-full block"
           style={{ 
             width: '100%', 
-            height: '100%',
-            // Sepia forces a base color, hue-rotate shifts it to purple, saturate makes it pop
-            filter: 'sepia(1) hue-rotate(180deg) saturate(400%) brightness(1.2)'
+            height: '100%'
           }}
         ></spline-viewer>
       </div>
@@ -100,14 +98,14 @@ export default function ComingSoon() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
-          className="absolute bottom-[-10%] w-[120%] sm:w-[800px] h-[150px] bg-[#7B61FF]/40 blur-[80px]" 
+          className="absolute bottom-[-10%] w-[120%] sm:w-[800px] h-[150px] bg-[lab(30.6017%_56.7637_-64.4751)]/40 blur-[80px]" 
           style={{ mixBlendMode: 'screen' }} 
         />
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, delay: 0.2 }}
-          className="absolute bottom-0 w-[80%] sm:w-[400px] h-[300px] bg-[#7B61FF]/30 blur-[100px]" 
+          className="absolute bottom-0 w-[80%] sm:w-[400px] h-[300px] bg-[lab(30.6017%_56.7637_-64.4751)]/30 blur-[100px]" 
           style={{ mixBlendMode: 'screen' }} 
         />
         <motion.div 
@@ -125,7 +123,7 @@ export default function ComingSoon() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] aurora-bg -z-10 pointer-events-none rounded-full blur-[60px]"></div>
 
       {/* Main Content */}
-      <main className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 w-full max-w-3xl mx-auto pointer-events-none">
+      <main className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 w-full max-w-3xl mx-auto pointer-events-none">
         <div className="pointer-events-auto w-full flex flex-col items-center">
           
           <div className="overflow-hidden p-2">
