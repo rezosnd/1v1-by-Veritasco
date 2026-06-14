@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0A0A0B;
+  --color-card: #111214;
+  --color-accent: #F89F1B;
+  --color-success: #22C55E;
+  --color-danger: #EF4444;
+  --color-info: #3B82F6;
+  --color-text-main: #FFFFFF;
+  --color-text-secondary: #A1A1AA;
+}
+
+@layer base {
+  :root {
+    --background: #0A0A0B;
+    --foreground: #FFFFFF;
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background: rgba(17, 18, 20, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  .glass-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+
+  .text-gradient {
+    background: linear-gradient(to right, #FFFFFF, #A1A1AA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .text-gradient-accent {
+    background: linear-gradient(to right, #F89F1B, #FFC107);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .text-gradient-blue {
+    background: linear-gradient(to right, #3B82F6, #8B5CF6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .glow-accent {
+    box-shadow: 0 0 20px rgba(248, 159, 27, 0.4);
+  }
+  
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+
+  @keyframes orbit {
+    0% {
+      transform: rotate(var(--angle)) translateX(var(--radius)) rotate(calc(var(--angle) * -1));
+    }
+    100% {
+      transform: rotate(calc(var(--angle) + 360deg)) translateX(var(--radius)) rotate(calc((var(--angle) + 360deg) * -1));
+    }
+  }
+
+  .animate-orbit {
+    animation: orbit calc(var(--duration) * 1ms) linear infinite;
+  }
+
+  @keyframes rotate {
+    to {
+      --angle: 360deg;
+    }
+  }
+
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  .billo-card {
+    border: 1px solid #0000;
+    background: linear-gradient(#010101, #010101) padding-box, linear-gradient(
+          var(--angle),
+          #000000,
+          #F89F1B
+        ) border-box;
+    animation: 8s rotate linear infinite;
+    border-radius: 1.5rem;
+  }
+
+  .billo-button {
+    border: 1px solid #0000;
+    background: linear-gradient(#010101, #010101) padding-box, linear-gradient(
+          var(--angle),
+          #000000,
+          #F89F1B
+        ) border-box;
+    animation: 8s rotate linear infinite;
+    border-radius: 9999px;
+  }
+
+  .billo-button:hover {
+    background: linear-gradient(#1a1102, #010101) padding-box, linear-gradient(
+          var(--angle),
+          #000000,
+          #F89F1B
+        ) border-box;
+    animation: 8s rotate linear infinite;
+  }
+}
+
+/* Hide Spline Viewer Watermark */
+spline-viewer::part(logo) {
+  display: none !important;
+}
+
+spline-viewer {
+  --logo-display: none !important;
+}
+
+.font-caveat {
+  font-family: 'Caveat', cursive;
+}
+
+.pencil-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  border-right: 2px solid rgba(255,255,255,0.5);
+  animation: type 4s steps(21, end) infinite alternate, blink 0.5s step-end infinite alternate;
+  width: 21ch;
+  color: rgba(255, 255, 255, 0.6);
+}
+@keyframes type {
+  0% { width: 0; }
+  20% { width: 0; } /* Pause at start */
+  80% { width: 21ch; }
+  100% { width: 21ch; } /* Pause at end */
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+
+.font-outfit {
+  font-family: 'Outfit', sans-serif;
+}
+.font-space {
+  font-family: 'Clash Display', sans-serif;
+}
+
+.font-inter { font-family: 'Inter', sans-serif; }
+.font-sora { font-family: 'Sora', sans-serif; }
+.font-clash { font-family: 'Clash Display', sans-serif; }
+
+/* ========================================= */
+/* EPIC CYBER ANIMATIONS                     */
+/* ========================================= */
+
+/* 1. Shimmer Text Sweep */
+@keyframes shimmerSweep {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #ffffff 35%,
+    #00D4FF 50%,
+    #ffffff 65%,
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  color: #000;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerSweep 4s linear infinite;
+}
+
+/* 2. Hacker Glitch on Hover */
+@keyframes glitch-anim {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 1px) }
+  40% { transform: translate(-1px, -1px) }
+  60% { transform: translate(2px, 1px) }
+  80% { transform: translate(1px, -1px) }
+  100% { transform: translate(0) }
+}
+.glitch-hover:hover {
+  animation: glitch-anim 0.3s infinite;
+  text-shadow: 2px 0 #00D4FF, -2px 0 #7B61FF;
+}
+
+/* 3. Animated Gradient Border Button */
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.btn-epic {
+  background: linear-gradient(90deg, #00D4FF, #7B61FF, #00D4FF);
+  background-size: 200% auto;
+  animation: borderGlow 3s linear infinite;
+}
+.btn-epic:hover {
+  background-size: 300% auto;
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+}
