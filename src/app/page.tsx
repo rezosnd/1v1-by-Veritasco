@@ -81,7 +81,7 @@ export default function ComingSoon() {
     <div className="relative h-screen w-full bg-[#0a0a0a] text-white flex flex-col overflow-hidden selection:bg-[lab(30.6017%_56.7637_-64.4751)]/30">
       
       {/* 3D Spline Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-100 flex items-center justify-center orb mt-[-5%]">
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-100 flex items-center justify-center orb mt-[-10%] sm:mt-[-5%] scale-[1.2] sm:scale-100">
         <spline-viewer 
           url="https://prod.spline.design/mFnZxSV0j4KZp6WS/scene.splinecode"
           className="w-full h-full block"
@@ -120,14 +120,14 @@ export default function ComingSoon() {
       {/* Drifting Particles */}
       <Particles />
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] aurora-bg -z-10 pointer-events-none rounded-full blur-[60px]"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[800px] md:h-[800px] aurora-bg -z-10 pointer-events-none rounded-full blur-[40px] md:blur-[60px]"></div>
 
       {/* Main Content */}
       <main className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 w-full max-w-3xl mx-auto pointer-events-none">
         <div className="pointer-events-auto w-full flex flex-col items-center">
           
           <div className="overflow-hidden p-2">
-            <h1 className="hero-title font-clash text-5xl sm:text-6xl md:text-8xl tracking-tight mb-4 sm:mb-6 font-bold leading-tight shimmer-text drop-shadow-2xl">
+            <h1 className="hero-title font-clash text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-tight mb-4 sm:mb-6 font-bold leading-tight shimmer-text drop-shadow-2xl">
               COMING SOON
             </h1>
           </div>
